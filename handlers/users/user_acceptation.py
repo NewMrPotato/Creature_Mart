@@ -30,7 +30,7 @@ async def high_evaluation_handler(callback: types.CallbackQuery):
         await delete_last_messages(callback.message)
 
         await callback.message.answer('Вы приняли соглашение!')
-        await callback.message.answer('Ваш профиль был создан👤')
+        await callback.message.answer('Ваш профиль был создан👤', reply_markup=profile_keyboard)
 
         # Подключение к базе данных
         conn = sqlite3.connect('data/database/database_shop.sqlite')
