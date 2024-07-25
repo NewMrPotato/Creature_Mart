@@ -1,0 +1,48 @@
+id/name/collection/color/price
+1/Stargazer Dragon/Celestial Guardians/Azure/The Starry Void/5000
+2/Lunar Wolf/Celestial Guardians/Silver/The Moonlit Forest/5000
+3/Solar Phoenix/Celestial Guardians/Gold/The Sunken City of Gold/5000
+4/Shadow Panther/Mystical Beasts/Black/The Whispering Woods/5000
+5/Forest Sprite/Mystical Beasts/Emerald/The Enchanted Glade/5000
+6/Mountain Giant/Mystical Beasts/Brown/The Peak of Mount Olympus/5000
+7/Griffin/Legendary Creatures/Golden/The Golden Plains/5000
+8/Pegasus/Legendary Creatures/White/The Clouds Above/5000
+9/Minotaur/Legendary Creatures/Red/The Labyrinth of Crete/5000
+10/Sea Serpent/Aquatic Wonders/Blue/The Depths of the Ocean/5000
+11/Mermaid/Aquatic Wonders/Green/The Coral Reef/5000
+12/Kraken/Aquatic Wonders/Purple/The Abyssal Trench/5000
+13/Cyclops/Mythical Figures/Red/The Island of Ogygia/5000
+14/Centaur/Mythical Figures/Brown/The Arcadian Woods/5000
+15/Medusa/Mythical Figures/Green/The Gorgon's Cave/5000
+16/Bigfoot/Cryptic Oddities/Brown/The Redwood Forest/5000
+17/Loch Ness Monster/Cryptic Oddities/Blue/The Scottish Highlands/5000
+18/Yeti/Cryptic Oddities/White/The Himalayas/5000
+19/Unicorn/Dreamweavers/White/The Enchanted Forest/5000
+20/Phoenix/Dreamweavers/Gold/The Isle of the Phoenix/5000
+21/Lightning Elemental/Elemental Spirits/Yellow/The Storm Cloud/5000
+22/Fire Elemental/Elemental Spirits/Red/The Volcano's Crater/5000
+23/Water Elemental/Elemental Spirits/Blue/The Ocean Depths/5000
+24/Earth Elemental/Elemental Spirits/Brown/The Mountain's Core/5000
+25/Air Elemental/Elemental Spirits/Azure/The Sky/5000
+26/Sunbeam Dragon/Celestial Guardians/Golden/The Sun's Corona/5000
+27/Moonlit Wolf/Celestial Guardians/Silver/The Moonlit Valley/5000
+28/Dawn Phoenix/Celestial Guardians/Pink/The Rose Garden/5000
+29/Shadow Jaguar/Mystical Beasts/Black/The Jungle Canopy/5000
+30/Meadow Sprite/Mystical Beasts/Green/The Blooming Meadow/5000
+31/Hill Giant/Mystical Beasts/Brown/The Mountain Range/5000
+32/Basilisk/Legendary Creatures/Green/The Snake Pit/5000
+33/Roc/Legendary Creatures/Blue/The Sky Above the Mountains/5000
+34/Hydra/Legendary Creatures/Purple/The Swamp of Lerna/5000
+35/Leviathan/Aquatic Wonders/Blue/The Deepest Ocean Trench/5000
+36/Undine/Aquatic Wonders/Azure/The Crystal Springs/5000
+37/Charybdis/Aquatic Wonders/Red/The Whirlpool/5000
+38/Cyclops Warrior/Mythical Figures/Red/The Cyclops Cave/5000
+39/Stone Elemental/Elemental Spirits/Brown/The Granite Quarry/5000
+40/Medusa's Gorgon/Mythical Figures/Green/The Temple of Medusa/5000
+41/Mothman/Cryptic Oddities/Black/The Point Pleasant Forest/5000
+42/Jersey Devil/Cryptic Oddities/Green/The Pine Barrens/5000
+43/Thunderbird/Cryptic Oddities/Purple/The Grand Canyon/5000
+44/Nightmare/Dreamweavers/Black/The Night Sky/5000
+45/Will o' the Wisp/Dreamweavers/Yellow/The Graveyard/5000
+46/Ice Elemental/Elemental Spirits/Azure/The Frozen Wasteland/5000
+47/Lava Elemental/Elemental Spirits/Red/The Volcano's Heart/5000
