@@ -42,7 +42,7 @@ selling_creature_id = None
 admins_id = [int(i) for i in lines[1].split('\\')[0].replace(' ', '').split(',')]
 
 # Это можете убрать
-admins_id.append(int(os.getenv("ID")))
+#admins_id.append(int(os.getenv("ID")))
 
 first_tutor_id = int(lines[4].split('\\')[0].replace(' ', '').split(',')[0])
 second_tutor_id = int(lines[4].split('\\')[0].replace(' ', '').split(',')[1])
