@@ -68,7 +68,13 @@ ___
 
 ## Administration
 
-- As for administration, if you send command `/admin`, you will see all information about admins possibilities 
+- As for administration, if you send command `/admin`, you will see all information about admins possibilities
 ![13](data/images/readme/13.PNG)
 
+### Commands
 
+1. `bi/id/amount` - will increase user balance, id - profile number (telegram id)
+2. `users` - will show you all bot users
+3.  `createre/id` - will show you all creatures of certain user
+4. `blacklist/id` - will add user to blacklist
+5. `verify/id` - will verify user profile
