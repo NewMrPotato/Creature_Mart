@@ -32,10 +32,6 @@ ___
 
 ## Running
 
-
-
-**Usage:**
-
 - Firstly, you need to solve a capcha
 ![1](data/images/readme/1.PNG)
 
@@ -69,6 +65,8 @@ ___
 ![12](data/images/readme/12.PNG)
 
 ---
+
+## Administration
 
 - As for administration, if you send command `/admin`, you will see all information about admins possibilities 
 ![13](data/images/readme/13.PNG)
