@@ -9,8 +9,6 @@
 
 This is a shop for buying and collecting mystical creatures. However, it can be a template for creating your own store in telegram bot. You can try out the bot [here](https://t.me/Creature_Mart_bot)
 
----
-
 ## Starting
 
 The `aiogram` library was used to create the bot. Therefore, you will need to install all the necessary dependencies to work:
