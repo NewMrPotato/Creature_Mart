@@ -1,6 +1,13 @@
 # Creature Mart
 
->This is a shop for buying and collecting mystical creatures. However, it can be a template for creating your own store in telegram bot. You can try out the bot [here](https://t.me/Creature_Mart_bot)
+![GitHub top language](https://img.shields.io/github/languages/top/NewMrPotato/Creature_Mart)
+![GitHub](https://img.shields.io/github/license/NewMrPotato/Creature_Mart)
+![GitHub Repo stars](https://img.shields.io/github/stars/NewMrPotato/Creature_Mart)
+![GitHub issues](https://img.shields.io/github/issues/NewMrPotato/Creature_Mart)
+
+## About
+
+This is a shop for buying and collecting mystical creatures. However, it can be a template for creating your own store in telegram bot. You can try out the bot [here](https://t.me/Creature_Mart_bot)
 
 ---
 
