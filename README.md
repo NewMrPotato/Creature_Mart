@@ -38,44 +38,54 @@ ___
 ## Running
 
 - Firstly, you need to solve a capcha
+
 ![1](data/images/readme/1.PNG)
 
 
 - And accept the user acceptation
+
 ![2](data/images/readme/2.PNG)
 
 
 - After there actions you will see the main menu
+
 ![3](data/images/readme/3.PNG)
 
 
 - If you click on 👤Профиль(profile), you will see your profile number, which is hidden and is telegram id
+
 ![4](data/images/readme/4.PNG)
 
 
 - If you click on 📨Техническая поддержка(support), you will see an instruction, how to request support, and a button with a link to the assistant
+
 ![5](data/images/readme/5.PNG)
 
 
 - If you click on 💸Пополнить баланс(top up your balance), you will see a message with minimum amount to deposit and with request to enter the required amount
+
 ![6](data/images/readme/6.PNG)
 
 
 - After entering deposit amount, you will see a message with some choices to deposit   
+
 ![7](data/images/readme/7.PNG)
 
 
 - After depositing you need to send a receipt to support using the link in the message
+
 ![8](data/images/readme/8.PNG)
 
 
 - If you click on 🐲Creatures маркетплейс(marketplace), you will see all collections of creatures, and you can choice a collection and creature. In the marketplace you have possibility to buy and sell your creatures
+
 ![9](data/images/readme/9.PNG)
 ![10](data/images/readme/10.PNG)
 ![11](data/images/readme/11.PNG)
 
 
 - After buying creature if you click on 🐢Мои Creatures(own collection), you will see all creatures you have
+
 ![12](data/images/readme/12.PNG)
 
 ---
@@ -83,6 +93,7 @@ ___
 ## Administration
 
 - As for administration, if you send command `/admin`, you will see all information about admins possibilities
+
 ![13](data/images/readme/13.PNG)
 
 ### Commands
