@@ -1,90 +1,36 @@
-# базы данных
-import sqlite3
+import asyncio
+from html import escape
 
-# aiogram
-from aiogram.enums import ParseMode
-from aiogram import types
+from aiogram import F, types
 
-# импорт внутри проекта
-from handlers.users.different_functions import delete_last_messages
-from handlers.users.start import get_sum_balance, minimal_sum
-from keyboards.inline.inline_buttons import back_to_profile_inline_keyboard, checking_payment_inline_keyboard, \
-    maintenance_link
-from loader import router, dp, bot
+from config import MINIMUM_AMOUNT
+from database import OperationError
+from handlers.users.navigation import show_screen
+from keyboards.inline.inline_buttons import (
+    back_to_profile_inline_keyboard,
+    checking_payment_inline_keyboard,
+)
+from loader import db, router, settings
 
 
-# Показываем окно с минимальной суммой депозита
-@router.callback_query(lambda query: query.data == "deposit")
+@router.callback_query(F.data == "deposit")
 async def deposit_handler(callback: types.CallbackQuery):
-    # Подключение к базе данных
-    conn = sqlite3.connect('data/database/database_shop.sqlite')
-    cursor = conn.cursor()
-
-    # Обновление баланса
-    cursor.execute("SELECT status FROM users WHERE tg_id = ?", (callback.from_user.id,))
-
-    result = cursor.fetchone()
-    user_status = result[0]
-
-    # Закрываем соединение с базой данных
-    cursor.close()
-    conn.close()
-
-    if user_status != 'blacklist':
-        await delete_last_messages(callback.message)
-
-        # Установите соединение с базой данных
-        conn = sqlite3.connect('data/database/database_shop.sqlite')
-        cursor = conn.cursor()
-
-        # Выполните запрос
-        cursor.execute("""UPDATE users SET status = ? WHERE tg_id = ?""", ('depositing', callback.from_user.id))
-
-        # Сохраните изменения в базе данных
-        conn.commit()
-
-        # Закройте соединение с базой данных
-        cursor.close()
-        conn.close()
-
-        caption = f'💸<b>Пополнение баланса</b>\n\n' \
-                  f'<b>Минимальная сумма:</b>\n' \
-                  f'{minimal_sum} RUB\n\n' \
-                  f'<i>Введите сумму для пополнения</i>'
-
-        await callback.message.answer(caption, parse_mode=ParseMode.HTML, reply_markup=back_to_profile_inline_keyboard)
-    else:
-        await callback.message.answer('Вы были добавлены в черный список⚫️ \n\nДля вас доступ к боту запрещен!')
+    await asyncio.to_thread(db.begin_flow, callback.from_user.id, "depositing")
+    await show_screen(
+        callback,
+        f"💸<b>Пополнение баланса</b>\n\nМинимальная сумма: {MINIMUM_AMOUNT} RUB\nВведите сумму для пополнения",
+        reply_markup=back_to_profile_inline_keyboard,
+    )
 
 
-# Показываем окно с номером карты для депозита
-@router.callback_query(lambda query: query.data == "way_to_increase_balance_bankcard")
-async def deposit_handler(callback: types.CallbackQuery):
-    # Подключение к базе данных
-    conn = sqlite3.connect('data/database/database_shop.sqlite')
-    cursor = conn.cursor()
-
-    # Обновление баланса
-    cursor.execute("SELECT status FROM users WHERE tg_id = ?", (callback.from_user.id,))
-
-    result = cursor.fetchone()
-    user_status = result[0]
-
-    # Закрываем соединение с базой данных
-    cursor.close()
-    conn.close()
-
-    if user_status != 'blacklist':
-        await delete_last_messages(callback.message)
-
-        # Получение суммы для депозита
-        sum_to_pay = await get_sum_balance()
-
-        caption = f'💸<b>Пополнение баланса</b>\n\n' \
-                  f'Оплатите <b>{sum_to_pay} RUB</b> по реквизитам, которые выдаст \n' \
-                  f'<a href="{maintenance_link}"><b><i>ТЕХ. ПОДДЕРЖКА</i></b></a>\n' \
-                  f'\n' \
-                  f'🧾<i>После пополнения баланса предоставьте квитанцию в техническую поддержку</i>'
-        await callback.message.answer(caption, parse_mode=ParseMode.HTML, reply_markup=checking_payment_inline_keyboard)
-    else:
-        await callback.message.answer('Вы были добавлены в черный список⚫️ \n\nДля вас доступ к боту запрещен!')
+@router.callback_query(F.data == "way_to_increase_balance_bankcard")
+async def bankcard_handler(callback: types.CallbackQuery):
+    state, data = await asyncio.to_thread(db.session, callback.from_user.id)
+    if state != "deposit_ready":
+        raise OperationError("Сумма пополнения не задана. Начните пополнение заново.")
+    caption = (
+        f"💸<b>Пополнение баланса</b>\n\nОплатите <b>{data['amount']} RUB</b> по реквизитам, которые выдаст "
+        f'<a href="{escape(settings.support_url, quote=True)}">ТЕХ. ПОДДЕРЖКА</a>\n\n'
+        "После пополнения предоставьте квитанцию в техническую поддержку."
+    )
+    await show_screen(callback, caption, reply_markup=checking_payment_inline_keyboard)

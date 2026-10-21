@@ -1,13 +1,14 @@
-from aiogram import Bot, types, Dispatcher, Router
+from aiogram import Bot, Dispatcher, Router
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
+from aiogram.fsm.storage.memory import SimpleEventIsolation
 
-with open('data/text/config.txt', 'r') as f:
-    lines = f.readlines()
+from config import load_settings
+from database import Database
 
-token = lines[0].split('\\')[0].replace(' ', '')
-bot = Bot(token=token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
-
-dp = Dispatcher()
+settings = load_settings()
+db = Database(settings.database_path)
+bot = Bot(token=settings.token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+dp = Dispatcher(events_isolation=SimpleEventIsolation())
 router = Router()
 dp.include_router(router)

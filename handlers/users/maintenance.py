@@ -1,24 +1,18 @@
-# aiogram
-from aiogram.enums import ParseMode
-from aiogram import types
+from html import escape
 
-# импорт внутри проекта
-from handlers.users.different_functions import delete_last_messages
-from handlers.users.start import user_acceptation_url
+from aiogram import F, types
+
+from handlers.users.navigation import show_screen
 from keyboards.inline.inline_buttons import maintenance_inline_keyboard
-from loader import router, dp, bot
+from loader import router, settings
 
 
-# Выводит сообщения с инструкцией к обращению в поддержку
-@router.callback_query(lambda query: query.data == "maintenance")
+@router.callback_query(F.data == "maintenance")
 async def maintenance_handler(callback: types.CallbackQuery):
-    await delete_last_messages(callback.message)
-
-    caption = f'📨<b>Вы можете сообщить о проблеме или ошибке, обратившись в техническую поддержку.</b>\n\n' \
-              f'Для того, чтобы наши специалисты могли помочь в сложившейся ситуации, вам необходимо:\n' \
-              f'Либо ознакомиться с <a href="{user_acceptation_url}">пользовательским соглашением</a>\n\n' \
-              f'-Представиться\n' \
-              f'-Описать подробно проблему\n' \
-              f'-Приложить соответствующие доказательства\n\n' \
-              f'⚠️<i>Официальная техническая поддержка никогда не пишет первая пользователям, обязательно сверяйте контакты через бота.</i>'
-    await callback.message.answer(caption, parse_mode=ParseMode.HTML, reply_markup=maintenance_inline_keyboard)
+    caption = (
+        "📨<b>Вы можете сообщить о проблеме или ошибке в техническую поддержку.</b>\n\n"
+        f'Ознакомьтесь с <a href="{escape(settings.agreement_url, quote=True)}">пользовательским соглашением</a>.\n\n'
+        "Представьтесь, подробно опишите проблему и приложите доказательства.\n\n"
+        "⚠️Официальная поддержка никогда не пишет первой. Сверяйте контакты через бота."
+    )
+    await show_screen(callback, caption, reply_markup=maintenance_inline_keyboard)
